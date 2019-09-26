@@ -4,4 +4,4 @@ python:
 install:
   - pip install numpy
 script:
-  - ./setup.py test
+  - pytest

@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
-
-"""Setup script."""
-
+#!/usr/local/bin python3
 from setuptools import setup
 
 setup(
@@ -20,6 +17,8 @@ setup(
         "pytest-pylint",
     ],
     tests_require=[
+        "pytest",
+        "pylint"
     ],
     classifiers=[
         "Development Status :: 1 - Planning",
