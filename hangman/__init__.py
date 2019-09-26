@@ -16,21 +16,20 @@ class Game:
         self._read_words()
 
     def _read_words(self):
-        with open(self.words_path, 'r') as f:
-            reader = csv.reader(f, delimiter='\n')
+        with open(self.words_path, 'r') as csv_file:
+            reader = csv.reader(csv_file, delimiter='\n')
             for row in reader:
                 self.words.append(row[0].strip())
 
-    def _pick_random(self):
+    def pick_random(self):
         return random.choice(self.words)
 
     def start_game(self):
-        self.play_word = self._pick_random()
+        self.play_word = self.pick_random()
         word = np.array(list(self.play_word.strip()))
         guess_word = np.array(['*']*len(self.play_word))
         tries = 0
         tmp_word = ''
-        print(self.play_word)
 
         while tries < self.max_tries:
             guess = input("Guess a letter:\n").strip()
@@ -50,8 +49,10 @@ class Game:
 
         if tmp_word == self.play_word:
             print("You won!")
-        else:
-            print("You lost!")
+            return True
+
+        print("You lost!")
+        return False
 
 
 def main():
