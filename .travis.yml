@@ -4,5 +4,6 @@ python:
 install:
   - pip install numpy
   - pip install pytest
+  - pip install setuptools
 script:
-  - pytest
+  - pytest --pylint
