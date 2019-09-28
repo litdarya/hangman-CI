@@ -1,4 +1,5 @@
-#!/usr/local/bin python3
+#!/usr/bin/env python3
+
 from setuptools import setup
 
 setup(
@@ -11,14 +12,17 @@ setup(
     packages=[
         "hangman",
     ],
+    setup_requires=[
+        "pytest-runner",
+        "pytest-pylint",
+        "pytest-pycodestyle",
+        "pytest-pep257",
+        "pytest-cov",
+    ],
     install_requires=[
     ],
-    setup_requires=[
-        "pytest-pylint",
-    ],
     tests_require=[
-        "pytest",
-        "pylint"
+        "pytest-pylint",
     ],
     classifiers=[
         "Development Status :: 1 - Planning",
