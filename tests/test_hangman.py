@@ -1,4 +1,3 @@
-import io
 from hangman import Game
 
 
@@ -41,12 +40,9 @@ def test_win():
         'm',
         'e',
     ]
-    game.output_stream = io.StringIO()
     check = game.start_game()
     assert check
     assert ''.join(game.guess_word) == 'game'
-    assert 'won' in game.output_stream.getvalue()
-    assert 'lost' not in game.output_stream.getvalue()
 
 
 def test_fail():
@@ -66,9 +62,6 @@ def test_fail():
         'f',
         'i',
     ]
-    game.output_stream = io.StringIO()
     check = game.start_game()
     assert not check
     assert ''.join(game.guess_word) == 'gam*'
-    assert 'lost' in game.output_stream.getvalue()
-    assert 'won' not in game.output_stream.getvalue()

@@ -9,7 +9,6 @@ class Game:
     """
     Hangman game class
     """
-    # pylint: disable=too-many-instance-attributes
 
     def __init__(self, words_path=None, tries=5):
         self.words_path = words_path
@@ -20,7 +19,6 @@ class Game:
         self.max_tries = tries
         # these members are needed for mocking in test
         self.input_stream = sys.stdin
-        self.output_stream = sys.stdout
 
         self._read_words()
 
@@ -56,36 +54,25 @@ class Game:
         tries = 0
         curr_word = ''
 
-        print("Guess a letter:\n", file=self.output_stream)
+        print("Guess a letter:\n")
         for line in self.input_stream:
             guess = line.strip()
             correct, curr_word = self.check_guess(guess)
 
             if correct:
-                print("Hit!\n", file=self.output_stream)
+                print("Hit!\n")
             else:
                 tries += 1
-                print(f"Missed, mistake {tries} out of {self.max_tries}.\n",
-                      file=self.output_stream)
+                print(f"Missed, mistake {tries} out of {self.max_tries}.\n")
 
-            print(f"The word: {curr_word}\n", file=self.output_stream)
+            print(f"The word: {curr_word}\n")
             if curr_word == self.play_word or tries >= self.max_tries:
                 break
-            print("Guess a letter:\n", file=self.output_stream)
+            print("Guess a letter:\n")
 
         if curr_word == self.play_word:
-            print("You won!", file=self.output_stream)
+            print("You won!")
             return True
 
-        print("You lost!", file=self.output_stream)
+        print("You lost!")
         return False
-
-
-def main():
-    assert len(sys.argv) == 2
-    game = Game(words_path=str(sys.argv[1]))
-    game.start_game()
-
-
-if __name__ == '__main__':
-    main()
