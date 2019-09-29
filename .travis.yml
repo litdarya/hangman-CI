@@ -2,9 +2,7 @@ language: python
 python:
   - "3.6"
 install:
-  - pip install numpy
-  - pip install pytest-pylint
-  - pip install setuptools
+  - pip install -r requirements.txt
   - pip install codecov
 script:
   - python3 setup.py test

@@ -22,6 +22,7 @@ setup(
     install_requires=[
     ],
     tests_require=[
+        "numpy",
         "pytest-pylint",
     ],
     classifiers=[

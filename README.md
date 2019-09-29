@@ -6,6 +6,11 @@ An implementation of a console hangman game
 in educational purposes (to try CI, code
 coverage and setuptools).
 
+# Preparing
+Install all requirements (I suggest using virtual env).
+```(bash)
+pip install -r requirements.txt 
+```
 # Usage
 You can use it either as a package or as console game.
 
@@ -32,3 +37,10 @@ game.start_game()
 Set of words (aka dictionary) is a text file
 with words separated by newline.
 Default is [dict.txt](dict.txt)
+
+# Running tests
+To run tests, static code analysis and code
+coverage type
+```(bash)
+python3 setup.py test
+```
