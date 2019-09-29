@@ -14,7 +14,7 @@ pip install -r requirements.txt
 # Usage
 You can use it either as a package or as console game.
 
-## Playing as script
+## Playing as a script
 Default [dictionary](#dictionary):
 ```(bash)
 python3 example.py
@@ -24,7 +24,7 @@ Your own [dictionary](#dictionary)
 python3 example.py --dict dict.txt
 ```
 
-## As a package
+## Using as a package
 ```(python)
 from hangman import Game
 
